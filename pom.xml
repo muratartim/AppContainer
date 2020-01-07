@@ -1,0 +1,144 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- configure project specs -->
+  <groupId>AppContainer</groupId>
+  <artifactId>AppContainer</artifactId>
+  <version>1.1</version>
+  <name>AF-Twin Data Analyst (x64)</name>
+  <description>JavaFX application container</description>
+  <url>https://github.com/muratartim/AppContainer</url>
+  <packaging>jar</packaging>
+
+  <!-- build block -->
+  <build>
+
+    <!-- specify source and resource directories -->
+    <sourceDirectory>src</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+
+    <!-- configure plugins -->
+    <plugins>
+
+      <!-- configure compiler plugin to use JDK 8 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+
+      <!-- configure exec plugin to run the application in IDE -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>container.AppContainer</mainClass>
+          <arguments>
+            <argument>--maxParallelTasks=3</argument>
+            <argument>--maxParallelSubtasks=2</argument>
+            <argument>--databasePageSize=8192</argument>
+            <argument>--databasePageCacheSize=4000</argument>
+            <argument>--maxVisibleSTFsPerSpectrum=20</argument>
+            <argument>--colorTheme=steelblue</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+
+      <!-- configure dependency plugin to copy dependencies into libs directory -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.directory}/libs
+              </outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- configure jar plugin to deploy project artifacts -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addDefaultImplementationEntries />
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>libs/</classpathPrefix>
+              <mainClass>container.AppContainer</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <!-- dependency repositories -->
+  <repositories>
+
+    <!-- local repository -->
+    <repository>
+      <id>my-local-repo</id>
+      <url>file://${basedir}/lib</url>
+    </repository>
+
+  </repositories>
+
+  <!-- dependencies -->
+  <dependencies>
+
+    <!-- jsch -->
+    <dependency>
+      <groupId>com.jcraft</groupId>
+      <artifactId>jsch</artifactId>
+      <version>0.1.54</version>
+    </dependency>
+
+    <!-- commons-text -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-text</artifactId>
+      <version>1.3</version>
+    </dependency>
+
+    <!-- local repository: base64/base64-all -->
+    <dependency>
+      <groupId>com.base64</groupId>
+      <artifactId>base64-all</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+
+  </dependencies>
+
+</project>

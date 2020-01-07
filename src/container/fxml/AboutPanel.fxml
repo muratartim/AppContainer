@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox fx:id="root" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="container.controller.AboutPanel">
+   <children>
+      <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/signature96.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" text="Designed &amp; Developed by" />
+            <Hyperlink fx:id="name" focusTraversable="false" layoutX="5.0" layoutY="53.0" onAction="#onNameClicked" text="Murat Artim">
+               <VBox.margin>
+                  <Insets bottom="-4.0" left="-5.0" />
+               </VBox.margin>
+            </Hyperlink>
+            <Hyperlink fx:id="email" focusTraversable="false" onAction="#onMailClicked" text="muratartim@gmail.com">
+               <VBox.margin>
+                  <Insets left="-5.0" />
+               </VBox.margin>
+            </Hyperlink>
+            <Label layoutX="10.0" layoutY="32.0" text="Software Solutions Architect" />
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="20.0" right="10.0" top="10.0" />
+   </padding>
+</HBox>

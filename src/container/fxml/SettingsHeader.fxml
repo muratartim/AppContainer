@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="root" prefWidth="500.0" spacing="15.0" style="-fx-background-color: white; -fx-border-color: transparent transparent lightgray transparent;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="container.controller.SettingsHeader">
+   <children>
+      <ImageView fx:id="image" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/sftphosting.png" />
+         </image>
+      </ImageView>
+      <VBox maxWidth="1.7976931348623157E308" spacing="4.0" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="title" maxWidth="1.7976931348623157E308" text="SFTP Hosting" textFill="STEELBLUE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="text" text="Application is hosted and deployed through a SFTP server. App Launcher will check for and download updates over a filer." textFill="SLATEGRAY" wrapText="true" />
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+</HBox>

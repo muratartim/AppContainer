@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="root" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="container.controller.SettingsPanel">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" spacing="5.0" VBox.vgrow="NEVER">
+         <children>
+            <Separator layoutX="230.0" layoutY="22.0" maxWidth="1.7976931348623157E308" translateY="1.0" HBox.hgrow="ALWAYS" />
+            <ToggleButton focusTraversable="false" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="105.0" selected="true" stylesheets="@../css/ToggleButtonLeft.css" text="Web Hosting">
+               <toggleGroup>
+                  <ToggleGroup fx:id="hostingType" />
+               </toggleGroup>
+               <HBox.margin>
+                  <Insets right="-5.0" />
+               </HBox.margin>
+            </ToggleButton>
+            <ToggleButton focusTraversable="false" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="105.0" stylesheets="@../css/ToggleButtonRight.css" text="SFTP Hosting" toggleGroup="$hostingType" />
+            <Separator maxWidth="1.7976931348623157E308" translateY="1.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <Pagination fx:id="pagination" maxHeight="1.7976931348623157E308" maxPageIndicatorCount="2" maxWidth="1.7976931348623157E308" pageCount="2" stylesheets="@../css/HiddenPagination.css" VBox.vgrow="ALWAYS" />
+   </children>
+</VBox>

@@ -1,0 +1,35 @@
+
+
+.taskPanel {
+	-fx-background-color:gainsboro;
+	-fx-background-radius:8.0;
+	-fx-border-color:lightgray;
+	-fx-border-radius:8.0;
+	-fx-border-width: 1.0;
+}
+
+.menuButton {
+	-fx-base:steelblue;
+	-fx-text-fill:white;
+}
+
+.roundButton {
+	-fx-base:steelblue;
+	-fx-text-fill:white;
+	-fx-background-radius:0.0 8.0 0.0 8.0;
+	-fx-border-radius:0.0 8.0 0.0 8.0;
+}
+
+.roundButton2 {
+	-fx-base:steelblue;
+	-fx-text-fill:white;
+	-fx-background-radius:0.0 0.0 0.0 8.0;
+	-fx-border-radius:0.0 0.0 0.0 8.0;
+}
+
+.roundButton3 {
+	-fx-base:steelblue;
+	-fx-text-fill:white;
+	-fx-background-radius:0.0 8.0 0.0 0.0;
+	-fx-border-radius:0.0 8.0 0.0 0.0;
+}

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="500.0" spacing="20.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="container.controller.WebHostingSettingsPanel">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <GridPane hgap="10.0" maxWidth="1.7976931348623157E308" vgap="10.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="ALWAYS" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Application name:" GridPane.halignment="RIGHT">
+               <tooltip>
+                  <Tooltip prefWidth="220.0" text="Name of application to be launched. Application name is used only in headers and mesages." wrapText="true" />
+               </tooltip></Label>
+            <TextField fx:id="webAppName" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+            <Label layoutX="10.0" layoutY="137.0" text="Connection timeout (ms):" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <tooltip>
+                  <Tooltip prefWidth="300.0" text="Sets a specified timeout value, in milliseconds, to be used when opening a communications link to the resource referenced by this URLConnection. If the timeout expires before the connection can be established, a java.net.SocketTimeoutException is raised. A timeout of zero is interpreted as an infinite timeout." wrapText="true" />
+               </tooltip></Label>
+            <TextField fx:id="webConnectionTimeout" layoutX="195.0" layoutY="132.0" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label layoutX="36.0" layoutY="97.0" text="Version description file URL:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <tooltip>
+                  <Tooltip prefWidth="220.0" text="URL to the version description file. Version description file is assummed to be served by a web server. App container will open the URL via the default browser." wrapText="true" />
+               </tooltip></Label>
+            <TextField fx:id="webVersionDescUrl" layoutX="195.0" layoutY="92.0" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label layoutX="10.0" layoutY="57.0" text="Manifest file URL:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <tooltip>
+                  <Tooltip prefWidth="220.0" text="URL to the manifest file of the application. This file must be named 'MANIFEST.MF'." wrapText="true" />
+               </tooltip></Label>
+            <TextField fx:id="webManifestUrl" layoutX="154.0" layoutY="12.0" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="'Notify update' attribute:" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <tooltip>
+                  <Tooltip prefWidth="220.0" text="Manifest file attribute name for update notifications. Manifest file must have this attribute with the specified name and a boolean value (true or false)." wrapText="true" />
+               </tooltip>
+            </Label>
+            <TextField fx:id="updateNotification" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="'Ignore update' attribute:" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+               <tooltip>
+                  <Tooltip prefWidth="220.0" text="Manifest file attribute name for allowing users to ignore updates. Manifest file must have this attribute with the specified name and a boolean value (true or false)." wrapText="true" />
+               </tooltip>
+            </Label>
+            <TextField fx:id="updateIgnorance" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="Application resources:" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+               <tooltip>
+                  <Tooltip prefWidth="220.0" text="All application files that build up the application. Files can be packed into zip archives. App container will extract them before launching the application." wrapText="true" />
+               </tooltip></Label>
+            <ListView fx:id="resourceList" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.rowSpan="2" />
+            <HBox alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" spacing="5.0" GridPane.rowIndex="7">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddResourceClicked" prefHeight="26.0" prefWidth="26.0">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Add new resource" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="remove" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="159.0" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onRemoveResourceClicked" prefHeight="26.0" prefWidth="26.0">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/remove.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Remove resource" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="edit" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="159.0" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEditResourceClicked" prefHeight="26.0" prefWidth="26.0">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/edit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Edit resource" />
+                     </tooltip>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </children>
+</VBox>
